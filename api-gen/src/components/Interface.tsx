@@ -134,8 +134,7 @@ const InterfaceGenerator = () => {
     </div>
   </div>
 </nav>
-
-    <div className="w-full max-w-4xl mx-auto p-4 space-y-4">
+    <div className="w-full max-w-4xl mx-auto p-4 mt-12 space-y-4">
       <Card>
       <CardHeader className="text-left pb-4">
           <CardTitle className="text-3xl font-bold tracking-tight">
