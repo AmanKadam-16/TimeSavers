@@ -21,3 +21,6 @@ Wanted to build timesaver mini - projects necessary for web development.
 ![alt text](https://github.com/AmanKadam-16/TimeSavers/blob/main/assets/UI4.png)
 ### In Case you API output is not just a simple String message, You can expect following output
 ![alt text](https://github.com/AmanKadam-16/TimeSavers/blob/main/assets/UIN.png)
+### Options to Choose as Output Types
+![alt text](https://github.com/AmanKadam-16/TimeSavers/blob/main/assets/UID.png)
+### If as a developer you find this mini-project useful, and it helped in saving atleast few minutes of development time then give this repository a ⭐ Star on GitHub 
