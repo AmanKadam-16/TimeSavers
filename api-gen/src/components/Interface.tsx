@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Clipboard, Check, Github } from 'lucide-react';
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import MarkdownPreview from '@uiw/react-markdown-preview';
+import Mention from './Mention';
 
 const InterfaceGenerator = () => {
   const [apiRoute, setApiRoute] = useState('');
@@ -121,7 +122,7 @@ const InterfaceGenerator = () => {
           </div>
         </div>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center text-left">
         <a
           href="https://github.com/AmanKadam-16/TimeSavers"
           target="_blank"
@@ -130,6 +131,7 @@ const InterfaceGenerator = () => {
         >
           <Github className="h-6 w-6" />
         </a>
+        <Mention  />
       </div>
     </div>
   </div>
