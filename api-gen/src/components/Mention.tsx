@@ -16,7 +16,7 @@ export default function Mention() {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
-        <Button variant="link">@code_red</Button>
+        <Button className="ml-0" variant="link">@code_red</Button>
       </HoverCardTrigger>
       <HoverCardContent className="w-80">
         <div className="flex justify-between space-x-4">

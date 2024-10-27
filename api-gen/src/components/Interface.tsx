@@ -110,32 +110,6 @@ const InterfaceGenerator = () => {
 
   return (
     <>
-      {/* Navigation Bar */}
-      <nav className="bg-white bg-opacity-30 backdrop-filter backdrop-blur-lg fixed top-0 left-0 right-0 border-b border-gray-200 z-50">
-        <div className="w-full px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                {/* Logo */}
-                <div className="text-2xl font-bold text-gray-800">
-                  TS<span className="text-blue-600">Gen</span>
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center text-left">
-              <a
-                href="https://github.com/AmanKadam-16/TimeSavers"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-gray-900 transition-colors duration-200"
-              >
-                <Github className="h-6 w-6" />
-              </a>
-              <Mention />
-            </div>
-          </div>
-        </div>
-      </nav>
       <div className="w-full max-w-4xl mx-auto px-1 mt-12 space-y-4">
         <Card >
           <CardHeader className="text-left pb-4">
