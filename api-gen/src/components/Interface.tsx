@@ -1,4 +1,4 @@
-import {useState } from 'react';
+import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -18,17 +18,17 @@ const InterfaceGenerator = () => {
   const [copied, setCopied] = useState(false);
   const [error, setError] = useState('');
 
-  const generateInterfaceName = (route : any) => {
+  const generateInterfaceName = (route: any) => {
     if (!route) return '';
     const parts = route.split('/');
     return parts[parts.length - 1];
   };
 
-  const generateTypeScript = (obj : any, isArray = false) => {
+  const generateTypeScript = (obj: any, isArray = false) => {
     const properties = Object.entries(obj).map(([key, value]) => {
       const type = typeof value;
       let typeStr = 'any';
-      
+
       if (type === 'string') typeStr = 'string';
       else if (type === 'number') typeStr = 'number';
       else if (type === 'boolean') typeStr = 'boolean';
@@ -41,7 +41,7 @@ const InterfaceGenerator = () => {
       } else if (type === 'object' && value !== null) {
         typeStr = generateTypeScript(value);
       }
-      
+
       return `  ${key}: ${typeStr}`;
     }).join('\n');
 
@@ -109,116 +109,116 @@ const InterfaceGenerator = () => {
   };
 
   return (
-<>
-    {/* Navigation Bar */}
-    <nav className="bg-white bg-opacity-30 backdrop-filter backdrop-blur-lg fixed top-0 left-0 right-0 border-b border-gray-200 z-50">
-  <div className="w-full px-4 sm:px-6 lg:px-8">
-    <div className="flex justify-between items-center h-16">
-      <div className="flex items-center">
-        <div className="flex-shrink-0">
-          {/* Logo */}
-          <div className="text-2xl font-bold text-gray-800">
-            TS<span className="text-blue-600">Gen</span>
-          </div>
-        </div>
-      </div>
-      <div className="flex items-center text-left">
-        <a
-          href="https://github.com/AmanKadam-16/TimeSavers"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-600 hover:text-gray-900 transition-colors duration-200"
-        >
-          <Github className="h-6 w-6" />
-        </a>
-        <Mention  />
-      </div>
-    </div>
-  </div>
-</nav>
-    <div className="w-full max-w-4xl mx-auto p-4 mt-12 space-y-4">
-      <Card>
-      <CardHeader className="text-left pb-4">
-          <CardTitle className="text-3xl font-bold tracking-tight">
-            TypeScript Interface Generator
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4 text-left">
-          <div>
-            <Label>API Route</Label>
-            <Input 
-              placeholder="e.g., Teacher/DeletePersonalAddressBook"
-              value={apiRoute}
-              onChange={(e) => setApiRoute(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <Label>Input JSON</Label>
-            <textarea 
-              className="w-full h-32 p-2 border rounded-md"
-              placeholder="Paste your input JSON here"
-              value={inputJson}
-              onChange={(e) => setInputJson(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <Label>Response Type</Label>
-            <Select value={responseType} onValueChange={setResponseType}>
-              <SelectTrigger>
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="string">String</SelectItem>
-                <SelectItem value="json">JSON</SelectItem>
-                <SelectItem value="boolean">Boolean</SelectItem>
-                <SelectItem value="number">Number</SelectItem>
-                <SelectItem value="void">Void</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          {responseType === 'json' && (
-            <div>
-              <Label>Output JSON</Label>
-              <textarea 
-                className="w-full h-32 p-2 border rounded-md"
-                placeholder="Paste your output JSON here"
-                value={outputJson}
-                onChange={(e) => setOutputJson(e.target.value)}
-              />
-            </div>
-          )}
-
-          <Button onClick={generateCode} className="w-full">
-            Generate Interface
-          </Button>
-
-          {error && (
-            <Alert variant="destructive">
-              <AlertDescription>{error}</AlertDescription>
-            </Alert>
-          )}
-
-          {markdownOutput && (
-            <div className="relative">
-              <Button
-                variant="outline"
-                size="icon"
-                className="absolute top-2 right-2 z-10"
-                onClick={copyToClipboard}
-              >
-                {copied ? <Check className="h-4 w-4" /> : <Clipboard className="h-4 w-4" />}
-              </Button>
-              <div className="border rounded-lg p-4" style={{textAlign:'left'}}>
-                <MarkdownPreview source={markdownOutput} />
+    <>
+      {/* Navigation Bar */}
+      <nav className="bg-white bg-opacity-30 backdrop-filter backdrop-blur-lg fixed top-0 left-0 right-0 border-b border-gray-200 z-50">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                {/* Logo */}
+                <div className="text-2xl font-bold text-gray-800">
+                  TS<span className="text-blue-600">Gen</span>
+                </div>
               </div>
             </div>
-          )}
-        </CardContent>
-      </Card>
-    </div>
+            <div className="flex items-center text-left">
+              <a
+                href="https://github.com/AmanKadam-16/TimeSavers"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-gray-900 transition-colors duration-200"
+              >
+                <Github className="h-6 w-6" />
+              </a>
+              <Mention />
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div className="w-full max-w-4xl mx-auto px-1 mt-12 space-y-4">
+        <Card >
+          <CardHeader className="text-left pb-4">
+            <CardTitle className="text-lg sm:text-2xl md:text-2xl lg:text-3xl font-bold tracking-tight">
+              TypeScript Interface Generator
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4 text-left">
+            <div>
+              <Label>API Route</Label>
+              <Input
+                placeholder="e.g., Teacher/DeletePersonalAddressBook"
+                value={apiRoute}
+                onChange={(e) => setApiRoute(e.target.value)}
+              />
+            </div>
+
+            <div>
+              <Label>Input JSON</Label>
+              <textarea
+                className="w-full h-32 p-2 border rounded-md"
+                placeholder="Paste your input JSON here"
+                value={inputJson}
+                onChange={(e) => setInputJson(e.target.value)}
+              />
+            </div>
+
+            <div>
+              <Label>Response Type</Label>
+              <Select value={responseType} onValueChange={setResponseType}>
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="string">String</SelectItem>
+                  <SelectItem value="json">JSON</SelectItem>
+                  <SelectItem value="boolean">Boolean</SelectItem>
+                  <SelectItem value="number">Number</SelectItem>
+                  <SelectItem value="void">Void</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            {responseType === 'json' && (
+              <div>
+                <Label>Output JSON</Label>
+                <textarea
+                  className="w-full h-32 p-2 border rounded-md"
+                  placeholder="Paste your output JSON here"
+                  value={outputJson}
+                  onChange={(e) => setOutputJson(e.target.value)}
+                />
+              </div>
+            )}
+
+            <Button onClick={generateCode} className="w-full">
+              Generate Interface
+            </Button>
+
+            {error && (
+              <Alert variant="destructive">
+                <AlertDescription>{error}</AlertDescription>
+              </Alert>
+            )}
+
+            {markdownOutput && (
+              <div className="relative">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="absolute top-2 right-2 z-10"
+                  onClick={copyToClipboard}
+                >
+                  {copied ? <Check className="h-4 w-4" /> : <Clipboard className="h-4 w-4" />}
+                </Button>
+                <div className="border rounded-lg p-4" style={{ textAlign: 'left' }}>
+                  <MarkdownPreview source={markdownOutput} />
+                </div>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      </div>
     </>
   );
 };
